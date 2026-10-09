@@ -1,41 +1,41 @@
-# CNN-based MNIST Classifier
+# 基于 CNN 的 MNIST 手写数字分类器
 
-A simple Convolutional Neural Network built with PyTorch to classify handwritten digits from the MNIST dataset.
+一个使用 PyTorch 构建的简单卷积神经网络（CNN），用于识别 MNIST 数据集中的手写数字。
 
-## Features
+## 功能特性
 
-- Automatically downloads the MNIST dataset on first run (via `torchvision`)
-- CNN architecture: 2 conv layers + max pooling + dropout + 2 fully connected layers
-- GPU acceleration when CUDA is available
-- Training and evaluation loops with per-epoch accuracy reporting
-- Inference script to predict digits from custom images
+- 首次运行时自动联网下载 MNIST 数据集（通过 `torchvision`）
+- CNN 网络结构：2 个卷积层 + 最大池化 + Dropout + 2 个全连接层
+- 支持 CUDA 时自动使用 GPU 加速训练
+- 完整的训练与评估循环，逐 epoch 输出准确率
+- 提供推理脚本，可识别自定义手写数字图片
 
-## Setup
+## 环境安装
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Train
+## 训练模型
 
 ```bash
 python train.py --epochs 5
 ```
 
-The model is saved to `mnist_cnn.pt`. Expected test accuracy: ~99%.
+训练完成后模型保存为 `mnist_cnn.pt`，预期测试准确率约 99%。
 
-## Predict
+## 预测数字
 
 ```bash
 python predict.py path/to/digit.png --model-path mnist_cnn.pt
 ```
 
-## Options
+## 参数说明
 
-| Argument       | Default        | Description                    |
-| -------------- | -------------- | ------------------------------ |
-| `--epochs`     | 5              | Number of training epochs      |
-| `--batch-size` | 64             | Training batch size            |
-| `--lr`         | 1e-3           | Learning rate (Adam)           |
-| `--data-dir`   | ./data         | MNIST download/cache directory |
-| `--model-path` | mnist_cnn.pt   | Where to save/load the model   |
+| 参数           | 默认值         | 说明                     |
+| -------------- | -------------- | ------------------------ |
+| `--epochs`     | 5              | 训练轮数                 |
+| `--batch-size` | 64             | 训练批次大小             |
+| `--lr`         | 1e-3           | 学习率（Adam 优化器）    |
+| `--data-dir`   | ./data         | MNIST 数据集下载/缓存目录 |
+| `--model-path` | mnist_cnn.pt   | 模型保存/加载路径        |
